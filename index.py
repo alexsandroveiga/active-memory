@@ -5,10 +5,11 @@ from sys import exit
 
 pygame.init()
 
-largura = 1080
-altura = 720
+largura = 1000
+altura = 700
 
 tela = pygame.display.set_mode((largura, altura))
+window = tela
 pygame.display.set_caption('Active Memory')
 bg = pygame.image.load('assets/logo.png')
 
@@ -120,6 +121,9 @@ while True:
   for event in pygame.event.get():
     if event.type == QUIT:
       exit()
+
+    if event.type == KEYDOWN:
+      numero = pygame.key.name(event.key)
     
     if event.type == pygame.MOUSEBUTTONDOWN:
       if text_rect.collidepoint(event.pos):
